@@ -1,0 +1,10 @@
+#!/bin/bash
+
+PERCENT=$(bluetoothctl info $(bluetoothctl devices | grep Hillside46 | awk '{print $2}') | grep 'Battery Percentage' | awk '{print $4}' | tr -d '()')
+
+if test -n "$PERCENT"
+then
+    echo "${PERCENT}%"
+else
+    echo "off"
+fi

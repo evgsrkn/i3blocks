@@ -1,0 +1,85 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+# Change $SCRIPT_DIR to the location of your scripts!
+command=$SCRIPT_DIR/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[disk]
+command=$SCRIPT_DIR/disk/disk
+label= 
+min_width= 99G
+align=center
+interval=30
+
+[memory]
+command=$SCRIPT_DIR/memory/memory
+label= 
+interval=30
+
+[wifi]
+command=$SCRIPT_DIR/wifi/wifi
+label= 
+# INTERFACE=wlp7s0
+interval=10
+
+[cpu_usage]
+command=$SCRIPT_DIR/cpu_usage/cpu_usage -w 80 -c 90 -d 0
+label= 
+interval=5
+min_width= 99%
+
+[temperature]
+command=$SCRIPT_DIR/temperature/temperature
+label= 
+interval=5
+
+[volume]
+command=$SCRIPT_DIR/volume/volume
+label= 
+interval=1
+signal=10
+
+[hillside]
+command=$SCRIPT_DIR/hillside/hillside
+interval=60
+label=  
+
+[battery]
+command=$SCRIPT_DIR/battery/battery
+label=  
+interval=10
+
+[time]
+command=date '+  %d-%m-%Y    %H:%M'
+interval=5
+
+[key_layout]
+label= 
+command=xset -q|grep LED| awk '{ if (substr ($10,5,1) == 1) print "RU"; else print "EN"; }'
+min_width=48
+interval=1
