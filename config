@@ -64,11 +64,6 @@ label=
 interval=1
 signal=10
 
-[hillside]
-command=$SCRIPT_DIR/hillside/hillside
-interval=60
-label=  
-
 [battery]
 command=$SCRIPT_DIR/battery/battery
 label=  
